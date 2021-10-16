@@ -4,7 +4,12 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import Caixa from './componentes/Caixa';
 
+import { useState } from 'react';
+
 export default function App() {
+
+  const [jogador, setJogador] = useState(0)
+
   return (
     <View style={styles.container}>
       <Text>Teste de jogo</Text>
@@ -12,15 +17,25 @@ export default function App() {
 
       <View style={styles.tabuleiro}>
         <View style={styles.linha}>
-          <Caixa /><Caixa /><Caixa />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
         </View>
         <View style={styles.linha}>
-          <Caixa /><Caixa /><Caixa />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
         </View>
         <View style={styles.linha}>
-          <Caixa /><Caixa /><Caixa />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
+          <Caixa jogador={jogador} mudaTurno={setJogador} />
         </View>
       </View>
+
+      <Text>
+        Agora é a vez do jogador {jogador + 1}
+      </Text>
     </View>
   );
 }
