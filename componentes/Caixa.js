@@ -12,29 +12,31 @@ import { useState } from 'react';
 
 export default function Caixa(props) {
 
-  const { jogador, mudaTurno } = props;
+  const { jogador, mudaTurno, linha, coluna } = props;
 
-  const [simbolo, setSimbolo] = useState()
+  const [simbolo, setSimbolo] = useState(0)
 
   let icone = "";
 
-  if (simbolo != null) {
-    if (simbolo === 0) {
+  if (simbolo != 0) {
+    if (simbolo === 1) {
       icone = <Feather name="x" size={60} color="black" />
-    } else {
+    } else if (simbolo === 2) {
       icone = <Feather name="circle" size={60} color="black" />
     }
   }
 
+  // Acotence quando a pessoa clica em cima
   let jogada = function() {
 
-    if (simbolo != null) {
+    if (simbolo != 0) {
       return;
     }
 
     setSimbolo(jogador)    
-    let turno = (jogador === 1)? 0 : 1;
-    mudaTurno(turno)
+
+    mudaTurno(jogador, linha, coluna);
+    
   }
 
   return (
