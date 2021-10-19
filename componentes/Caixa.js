@@ -12,9 +12,11 @@ import { useState } from 'react';
 
 export default function Caixa(props) {
 
-  const { jogador, mudaTurno, linha, coluna } = props;
+  const { jogador, mudaTurno, linha, coluna, tabuleiro } = props;
 
-  const [simbolo, setSimbolo] = useState(0)
+  //const [simbolo, setSimbolo] = useState(0)
+
+  const simbolo = tabuleiro[linha][coluna];
 
   let icone = "";
 
@@ -32,8 +34,6 @@ export default function Caixa(props) {
     if (simbolo != 0) {
       return;
     }
-
-    setSimbolo(jogador)    
 
     mudaTurno(jogador, linha, coluna);
     
